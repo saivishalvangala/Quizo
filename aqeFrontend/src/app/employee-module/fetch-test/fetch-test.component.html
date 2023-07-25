@@ -1,0 +1,62 @@
+<div class="container navbar2">
+    <div class="row text-uppercase">
+        <div class="col-6  testName">
+            <h3>{{topicName}} - TEST</h3>
+        </div>
+        <div class="col-6 timerContainer">
+            <div class="timer">
+                <h3>{{roundedMins}}:{{roundedSecs}}</h3>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="card m-5">
+        <div class="card-body">
+            <h4>Q{{count+1}})</h4>
+            <div class="question">
+                <h3 class="card-title">{{question?.question}}</h3>
+                <div class="card-text">
+                    <div class="custom-control">
+                        <label>
+                        <input type="radio" name="options" value="0" [(ngModel)]="choices">
+                        {{question.choices[0]}}
+                    </label>
+                    </div>
+                    <div class="custom-control">
+                        <label>
+                        <input type="radio" name="options" value="1" [(ngModel)]="choices">
+                        {{question.choices[1]}}
+                    </label>
+                    </div>
+                    <div class="custom-control">
+                        <label>
+                        <input type="radio" name="options" value="2" [(ngModel)]="choices">
+                        {{question.choices[2]}}
+                    </label>
+                    </div>
+                    <div class="custom-control">
+                        <label>
+                        <input type="radio" name="options" value="3" [(ngModel)]="choices">
+                        {{question.choices[3]}}
+                    </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-4 text-center">
+            <button mat-raised-button color="primary" (click)="nextQuestion(choices)">NEXT QUESTION</button>
+        </div>
+        <div class="col-sm-4 "></div>
+        <div class="col-sm-4 text-center">
+            <button mat-raised-button color="primary" (click)="endTest()">SUBMIT TEST AND EXIT</button>
+        </div>
+    </div>
+
+
+
+</div>

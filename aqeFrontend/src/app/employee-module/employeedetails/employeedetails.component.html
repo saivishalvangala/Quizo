@@ -1,0 +1,21 @@
+<h3>
+    Enter your details
+</h3>
+
+<form class="empDetailsForm" #employeeDetailsForm="ngForm">
+    <div class="form-group form">
+        <label for="exampleInputEmail1"> EmployeeId</label>
+        <input class="x" #id class="form-control" id="exampleInputEmail1" type="text">
+    </div>
+
+    <div class="form-group">
+        <label for="exampleInputEmail2"> EmployeeName</label>
+        <input class="x" #name class="form-control" id="exampleInputEmail2" type="text"><br>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail3"> Email</label>
+        <input #emailid class="form-control" id="exampleInputEmail3" type="text"><br>
+        <button class="x" class="btn btn-primary btn-block-sm" (click)="saveDetailsAndGoToInstructions(id.value, name.value, Emailid.value)" id="submit">Submit</button>
+
+    </div>
+</form>

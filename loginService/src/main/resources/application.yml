@@ -1,0 +1,9 @@
+spring:
+  profiles:
+    active:
+      - prod
+  application:
+    name: loginService
+server:
+  port: 8081
+

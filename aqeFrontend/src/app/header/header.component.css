@@ -1,0 +1,28 @@
+.x {
+    position: fixed;
+    top: 0;
+    height: 50px;
+    z-index: 1000;
+    align-content: center;
+    justify-content: space-between;
+    margin-bottom: 100px;
+}
+
+.spacing-l-20 {
+    cursor: pointer;
+    margin-left: 20px;
+    width: 75px;
+    height: 35px;
+    background: url('../../assets/img/logo101.png');
+    background-blend-mode: lighten;
+    background-size: 75px 35px;
+    background-color: #263238;
+}
+
+.v-center {
+    vertical-align: -5px;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}

@@ -1,0 +1,92 @@
+  version : "3"
+  services:
+    login-service:
+      image: loginservice
+      build: loginService/
+      restart: always
+      network_mode: host
+      hostname: localhost
+      container_name: login-service
+      ports:
+        - "8081:8081"
+      environment:
+        - "SPRING_PROFILES_ACTIVE=prod"
+      healthcheck:
+        test: ["CMD", "curl", "-f", "http://localhost:8081"]
+        interval: 4m30s
+        timeout: 10s
+        retries: 3
+
+    employee-service:
+      image: employeeservice
+      build: employeeService/
+      restart: always
+      network_mode: host
+      hostname: localhost
+      container_name: employee-service
+      ports:
+        - "8083:8083"
+      environment:
+        - "SPRING_PROFILES_ACTIVE=prod"
+      healthcheck:
+        test: ["CMD", "curl", "-f", "http://localhost:8083"]
+        interval: 4m30s
+        timeout: 10s
+        retries: 3
+
+    hr-service:
+      image: hrservice
+      build: hrService/
+      restart: always
+      network_mode: host
+      hostname: localhost
+      container_name: hr-service
+      ports:
+        - "8084:8084"
+      environment:
+        - "SPRING_PROFILES_ACTIVE=prod"
+      healthcheck:
+        test: ["CMD", "curl", "-f", "http://localhost:8084"]
+        interval: 4m30s
+        timeout: 10s
+        retries: 3
+    angular-app:
+      image: angular-app
+      build: aqeFrontend/
+      restart: always
+      network_mode: host
+      hostname: localhost
+      container_name: angular-app
+      ports:
+        - "4200:4200"
+      healthcheck:
+        test: ["CMD", "curl", "-f", "http://localhost:8080"]
+        interval: 4m30s
+        timeout: 10s
+        retries: 3
+    eureka-service:
+      image: eureka
+      build: eurekaService/
+      restart: always
+      network_mode: host
+      container_name: eureka-container
+      ports:
+        - "8761:8761"
+
+    spring-config-server:
+      image: config
+      build: configServer/
+      restart: always
+      network_mode: host
+      container_name: config-container
+      ports:
+        - "8888:8888"
+
+    api-gateway-service:
+      image: zuul
+      build: zuulService/
+      restart: always
+      network_mode: host
+      container_name: zuul-container
+      ports:
+        - "8080:8080"

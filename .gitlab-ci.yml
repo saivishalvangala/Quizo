@@ -1,0 +1,25 @@
+stages:
+    - compile
+    - test
+
+cache:
+    paths:
+        - .m2/
+
+variables:
+    MAVEN_OPTS: "-Dmaven.repo.local=.m2"
+
+compile_job:
+    stage: compile
+    tags:
+        - immersive-runner-cgi
+    image: maven:latest
+    script:
+        - mvn compile 
+test_job:
+    stage: test
+    tags:
+        - immersive-runner-cgi
+    image: maven:latest
+    script:
+        - mvn test

@@ -1,0 +1,38 @@
+  body{
+    height: 100%;
+  }
+ .feedHead{
+   margin-left: 27%;
+   margin-bottom: 2%;
+   color: rgba(2, 4, 15, 0.986);
+   font-family: bold,'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+   font-size: 50%;
+ }
+  .feedContent{
+    margin-left: 33%;
+    color: black;
+    font: bold;
+  }
+.feedText{
+   width: 50%;
+}
+.feedback{
+
+  width: 50%;
+  margin-left: 25%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  border: 1px solid none;
+  background: #F5F5F5;
+}
+.feed{
+  width: 100%;
+  margin-top: 3%;
+}
+.example-button-row{
+  margin-left: 45%;
+}
+a{
+  color: white;
+  text-emphasis: unset;
+}

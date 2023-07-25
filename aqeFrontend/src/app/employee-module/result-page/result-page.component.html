@@ -1,0 +1,89 @@
+<app-header></app-header>
+<div class="container">
+  <div class="jumbotron margin-container">
+    <h1 class="display-4" style="font-size: 35px;"><strong>TEST RESULT</strong></h1>
+    <!-- <p class="lead">This is the main dashboard screen for creating tests, users and requests .</p> -->
+    <hr class="my-4">
+    <div class="mat-elevation-z8">
+    <mat-card>
+     <div class="row">
+          <div class="col-md-3">
+                <div class="row" style="justify-content: center;">
+                    <mat-card-subtitle>Name</mat-card-subtitle>
+                </div>
+                <div class="row" style="justify-content: center;">
+                    <mat-card-content>{{employeeResult?.topicName}}</mat-card-content>
+                </div>
+          </div>
+          <div class="col-md-3">
+                <div class="row" style="justify-content: center;">
+                    <mat-card-subtitle>Correct</mat-card-subtitle>
+                </div>
+                <div class="row" style="justify-content: center;">
+                    <mat-card-content>{{employeeResult?.correct}}</mat-card-content>
+                </div>
+          </div>
+          <div class="col-md-3">
+                <div class="row" style="justify-content: center;">
+                    <mat-card-subtitle>Incorrect</mat-card-subtitle>
+                </div>
+                <div class="row" style="justify-content: center;">
+                    <mat-card-content>{{employeeResult?.wrong}}</mat-card-content>
+                </div>
+          </div>
+          <div class="col-md-3">
+                <div class="row" style="justify-content: center;">
+                    <mat-card-subtitle>Score</mat-card-subtitle>
+                </div>
+                <div class="row" style="justify-content: center;">
+                    <mat-card-content>{{employeeResult?.score | number: '1.2-2'}}</mat-card-content>
+                </div>
+          </div>
+     </div> 
+
+      </mat-card>
+    </div>
+  </div>
+
+  <div class=text-center>
+    <h3>
+        Analyze your Responses:
+    </h3>
+</div>
+
+
+  <!-- Scroll Box -->
+  <div class="scroll">
+    <div class="card questionContainer"
+      style="height:570px;width:93%; border:10px solid rgb(134, 134, 134);font:16px/26px Georgia, Garamond, Serif;overflow:auto;">
+      <div class="card-body">
+        <div *ngFor="let attempt of attempts; let i = index">
+          <h4>Q{{i+1}})</h4>
+          <h5 class="card-title">{{attempt.question}}</h5>
+          <div *ngFor="let choice of attempt.choices ">
+            <div *ngIf="choice==attempt.response; else elseBlock">
+              <div *ngIf="attempt.response==attempt.answer; else elseBlock2">
+                <label class="green">
+                  <input type="radio">{{choice}}
+                </label>
+              </div>
+              <ng-template #elseBlock2>
+                <label class="red">
+                  <input type="radio">{{choice}}
+                </label>
+              </ng-template>
+            </div>
+            <ng-template #elseBlock>
+              <label>
+                <input type="radio">{{choice}}
+              </label>
+            </ng-template>
+          </div>
+          <p style="font-size: 18px"> <strong> Correct answer : {{attempt.answer}}</strong></p>
+          <hr>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

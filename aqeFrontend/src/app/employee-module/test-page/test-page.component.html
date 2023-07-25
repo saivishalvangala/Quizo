@@ -1,0 +1,17 @@
+<form class="my-form" #userregistrationform="ngForm">
+    <mat-card class="example-box" *ngFor="let question of questionList">
+        <h3>
+            {{ question.question }}
+        </h3>
+        <br/>
+        <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group">
+            <mat-radio-button class="example-radio-button" *ngFor="let choice of question.choices" [value]="choice" [(ngModel)]="question.response" name="response" ngDefaultControl>
+                {{choice}}
+            </mat-radio-button>
+        </mat-radio-group>
+    </mat-card>
+    <div class="container">
+        <a routerLink='/employee/thankyou'>
+            <button mat-raised-button color="primary" type="submit"  (click)="saveResponse(questionList)" >Submit</button></a>
+    </div>
+</form>

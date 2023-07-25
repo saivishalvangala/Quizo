@@ -1,0 +1,23 @@
+.login-main {
+    padding-top: 3%;
+}
+
+.mat-card {
+    min-width: 40%;
+}
+
+.back {
+    background-color: #F5F5F5;
+}
+
+.spacing-l-20 {
+    margin-left: 20px;
+}
+
+.v-center {
+    vertical-align: baseline;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
